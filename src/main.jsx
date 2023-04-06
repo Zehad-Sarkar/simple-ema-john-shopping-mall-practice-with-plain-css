@@ -12,6 +12,7 @@ import CartProduct from './components/CartProduct/CartProduct';
 import cartLoader from './components/productCartLoader/CartLoader';
 import ReviewOrder from './components/ReviewOrder/ReviewOrder';
 import CheckOut from './components/CheckOut/CheckOut';
+import "./App.css";
 
 const router = createBrowserRouter([
   {

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import AllProducts from "../AllProducts/AllProducts";
 import CartProduct from "../CartProduct/CartProduct";
-import { addToCart, deleteCart, getShoppingCart } from "../../utilities/localStorage";
+import {
+  addToCart,
+  deleteCart,
+  getShoppingCart,
+} from "../../utilities/localStorage";
 import { Link } from "react-router-dom";
 
 const Shop = () => {
@@ -47,21 +51,19 @@ const Shop = () => {
   //remove all cart item from cart
   const handleClearBtn = () => {
     setCart([]);
-    deleteCart()
+    deleteCart();
   };
 
   return (
     <div className="shop-container">
-      <div className="">
-        <div className="product-container">
-          {products.map((product) => (
-            <AllProducts
-              product={product}
-              key={product.id}
-              handleAddToCart={handleAddToCart}
-            ></AllProducts>
-          ))}
-        </div>
+      <div className="product-container">
+        {products.map((product) => (
+          <AllProducts
+            product={product}
+            key={product.id}
+            handleAddToCart={handleAddToCart}
+          ></AllProducts>
+        ))}
       </div>
 
       <div className="cart-container">

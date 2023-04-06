@@ -6,7 +6,6 @@
   align-items: center;
   border-radius: 5px;
   width: 100%;
- 
 }
 .header a {
   width: 60px;
@@ -18,23 +17,22 @@
 }
 
 .header a:hover {
- 
   color: rgb(235, 54, 54);
   font-size: 24px;
   font-weight: 400;
-  padding:10px; 
+  padding: 10px;
   border-radius: 15px;
 }
 
 /* shop main section means body */
-.shop-container{
+.shop-container {
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-gap: 10px;
 }
 
 /* product-container means shops container left */
-.product-container{
+.product-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 15px;
@@ -45,28 +43,28 @@
 }
 
 /* product-container means shops container left */
-.cart-container{
-   position: relative;
-    background: #ee8040;
+.cart-container {
+  position: relative;
+  background: #ee8040;
   margin-top: 20px;
   border-radius: 10px;
   padding: 10px;
 }
 
-.image{
+.image {
   width: 100%;
   border-radius: 8px;
   height: 180px;
 }
-.all-products{
+.all-products {
   border: 2px solid #51045c;
   padding: 10px;
   margin: 10px;
   background: #d2c2c2;
-border-radius: 8px;
-position: relative;
+  border-radius: 8px;
+  position: relative;
 }
-.btn{
+.btn {
   width: 100%;
   background: #8d5a83;
   font-size: 20px;
@@ -74,53 +72,50 @@ position: relative;
   color: white;
   font-weight: 600;
   position: absolute;
-top: auto;
-left: 0;
-bottom: 0;
-
+  top: auto;
+  left: 0;
+  bottom: 0;
 }
-.details p{
+.details p {
   margin: auto;
-
 }
 
-.cart{
+.cart {
   position: sticky;
   border: 2px solid yellowgreen;
   padding: 10px;
   border-radius: 8px;
   background: #e0e7a4;
- 
 }
 
-.order-container{
+.order-container {
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-gap: 10px;
 }
 
-.order-left{
-   background: #f18fd0;
+.order-left {
+  background: #f18fd0;
   margin-top: 20px;
   border-radius: 10px;
   padding: 10px;
 }
 
-.order-right{
-   position: relative;
-    background: #ee8040;
+.order-right {
+  position: relative;
+  background: #ee8040;
   margin-top: 20px;
   border-radius: 10px;
   padding: 10px;
 }
 
-.review-image{
+.review-image {
   width: 100px;
   height: 100px;
   border-radius: 5px;
 }
 
-.review-container{
+.review-container {
   background: #4274f0bd;
   border: 2px solid pink;
   border-radius: 8px;
@@ -133,41 +128,31 @@ bottom: 0;
   margin: 0 auto;
 }
 
-.review-product{
+.review-product {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* responsive  for mobile*/
+@media only screen and(max-width: 768px) {
+  .header {
+    flex-direction: column;
+    background: #951f1f;
+  }
+  .shop-container {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+  .product-container {
+    grid-template-columns: 1fr;
+    background: #f18fd0;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+}
 
 
 
