@@ -13,6 +13,7 @@ import cartLoader from './components/productCartLoader/CartLoader';
 import ReviewOrder from './components/ReviewOrder/ReviewOrder';
 import CheckOut from './components/CheckOut/CheckOut';
 import "./App.css";
+import Register from './components/Register/Register';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "inventory",
         element: <Inventory></Inventory>,
+      },
+      {
+        path: '/register',
+        element:<Register></Register>
       },
       {
         path: "login",
