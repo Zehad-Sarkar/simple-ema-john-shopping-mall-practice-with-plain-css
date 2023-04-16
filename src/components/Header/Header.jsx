@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../images/Logo.svg";
 import { Link } from "react-router-dom";
 import "../../App.css";
+import { AuthContext } from "../Providers/AuthProviders";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext)
+  const handleSignOut = () => {
+    logOut()
+  }
   return (
     <div className="header">
       <div className="">
@@ -17,6 +22,7 @@ const Header = () => {
         <Link to="/inventory">Inventory</Link>
         <Link to="/register">Register</Link>
         <Link to="/login">Login</Link>
+        <p>{user && <span>welcome {user.email} <button onClick={handleSignOut}>Sign Out</button></span>}</p>
       </div>
     </div>
   );
