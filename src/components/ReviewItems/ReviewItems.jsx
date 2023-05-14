@@ -1,7 +1,8 @@
 import React from 'react';
 
 const ReviewItems = ({ product, handleDeleteBtn }) => {
-  const { name, price, quantity, img ,id} = product;
+  const { name, price, quantity, img, _id } = product;
+ 
 
   return (
     <div className="review-container">
@@ -13,7 +14,7 @@ const ReviewItems = ({ product, handleDeleteBtn }) => {
           <h5>Quantity: {quantity}</h5>
         </div>
       </div>
-      <button onClick={() => handleDeleteBtn(id)}>delete</button>
+      <button onClick={() => handleDeleteBtn(_id)}>delete</button>
     </div>
   );
 };

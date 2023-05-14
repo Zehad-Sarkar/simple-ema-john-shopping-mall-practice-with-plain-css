@@ -1,11 +1,16 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 
 const Login = () => {
   const { logUser } = useContext(AuthContext);
-  const [loginUser, setLoginUser] = useState('');
-  const [error,setError]=useState('')
+const [showPass,setShowPass]=useState(false)
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
+  const from=location.state?.from?.pathname || '/'
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -13,16 +18,16 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    
+
     logUser(email, password)
-      .then(result => {
+      .then((result) => {
         const logIn = result.user;
-        setLoginUser('login success')
         form.reset();
+        navigate(from,{replace:true});
       })
-      .catch(error => {
-      setError(error.message)
-    })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   return (
     <div className="form-container">
@@ -41,19 +46,25 @@ const Login = () => {
         <div className="form-control">
           <label htmlFor="password">Password</label>
           <input
-            type="password"
+            type={showPass?'password':'text'}
             name="password"
             id="password"
             placeholder="type your password"
             required
           />
+          <p onClick={() => setShowPass(!showPass)}>
+            <small>
+              {
+                showPass? <span>show password</span>: <span>hide password</span>
+              }
+            </small>
+          </p>
         </div>
         <input className="btn-submit" type="submit" value="Login" />
         <p>
           New to ema john? <Link to="/register">Create New Account</Link>
         </p>
       </form>
-      <p>{loginUser}</p>
     </div>
   );
 };

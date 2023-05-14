@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
-import CartProduct from '../CartProduct/CartProduct';
-import ReviewItems from '../ReviewItems/ReviewItems';
-import { deleteCart, removeFromCart } from '../../utilities/localStorage';
+import React, { useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import CartProduct from "../CartProduct/CartProduct";
+import ReviewItems from "../ReviewItems/ReviewItems";
+import { deleteCart, removeFromCart } from "../../utilities/localStorage";
 
 const Order = () => {
   const savedCart = useLoaderData();
@@ -11,19 +11,18 @@ const Order = () => {
 
   //remove single item from cart
   const handleDeleteBtn = (id) => {
-    console.log(id);
-    const remaining = cart.filter(pd => pd.id !== id)
-    setCart(remaining)
-    removeFromCart(id)
-}
+    const remaining = cart.filter((pd) => pd._id !== id);
+    setCart(remaining);
+    removeFromCart(id);
+  };
 
   //remove all cart item from cart
   const handleClearBtn = () => {
-    setCart([])
-    deleteCart()
-  }
+    setCart([]);
+    deleteCart();
+  };
 
-// console.log(cart);
+  // console.log(cart);
   return (
     <div className="order-container">
       <div className="order-left">
@@ -32,7 +31,7 @@ const Order = () => {
             <ReviewItems
               product={product}
               handleDeleteBtn={handleDeleteBtn}
-              key={product.id}
+              key={product._id}
             ></ReviewItems>
           ))}
         </div>
@@ -41,7 +40,6 @@ const Order = () => {
         <CartProduct cart={cart} handleClearBtn={handleClearBtn}>
           <Link to="/checkout">CheckOut</Link>
         </CartProduct>
-       
       </div>
     </div>
   );
