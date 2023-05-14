@@ -25,8 +25,8 @@ const Shop = () => {
     setItemsPerPages(parseInt(e.target.value))
     setCurrentPage(0)
   }
-
-
+//pagination end here
+  
   useEffect(() => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
